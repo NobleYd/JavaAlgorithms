@@ -1,7 +1,7 @@
 package point2offer;
 
 /**
- * Author: 鐜嬩繆瓒�
+ * Author: 王俊超
  * Date: 2015-06-16
  * Time: 09:18
  * Declaration: All Rights Reserved !!!
@@ -25,35 +25,35 @@ public class Test57 {
     }
 
     private static ListNode deleteDuplication(ListNode head) {
-        // 涓簄ull
+        // 为null
         if (head == null) {
             return null;
         }
 
-//        // 鍙湁涓�涓粨鐐�
+//        // 只有一个结点
 //        if (head.next == null) {
 //            return head;
 //        }
 
-        // 涓存椂鐨勫ご缁撶偣
+        // 临时的头结点
         ListNode root = new ListNode();
         root.next = head;
-        // 璁板綍鍓嶉┍缁撶偣
+        // 记录前驱结点
         ListNode prev = root;
-        // 璁板綍褰撳墠澶勭悊鐨勭粨鐐�
+        // 记录当前处理的结点
         ListNode node = head;
         while (node != null && node.next != null) {
-            // 鏈夐噸澶嶇粨鐐癸紝涓巒ode鍊肩浉鍚岀殑缁撶偣閮借鍒犻櫎
+            // 有重复结点，与node值相同的结点都要删除
             if (node.val == node.next.val) {
-                // 鎵惧埌涓嬩竴涓笉鍚屽�肩殑鑺傜偣锛屾敞鎰忓叾鏈夊彲鑳戒篃鏄噸澶嶈妭鐐�
+                // 找到下一个不同值的节点，注意其有可能也是重复节点
                 while (node.next != null && node.next.val == node.val) {
                     node = node.next;
                 }
-                // 鎸囧悜涓嬩竴涓妭鐐癸紝prev.next涔熷彲鑳芥槸閲嶅缁撶偣
-                // 鎵�浠rev涓嶈绉诲姩鍒颁笅涓�涓粨鐐�
+                // 指向下一个节点，prev.next也可能是重复结点
+                // 所以prev不要移动到下一个结点
                 prev.next = node.next;
             }
-            // 鐩搁偦涓や釜鍊间笉鍚岋紝璇存槑node涓嶅彲鍒犻櫎锛岃淇濈暀
+            // 相邻两个值不同，说明node不可删除，要保留
             else {
                 prev.next = node;
                 prev = prev.next;
