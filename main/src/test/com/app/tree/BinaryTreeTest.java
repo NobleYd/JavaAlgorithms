@@ -3,8 +3,8 @@ package com.app.tree;
 import org.junit.Test;
 
 import com.app.BinaryTreeNode;
-import com.app.tree.BinaryTree;
 import com.app.TestBase;
+import com.app.tree.binary.BinaryTree;
 
 public class BinaryTreeTest extends TestBase {
 
